@@ -14,6 +14,9 @@ public class HomePage extends BasePage {
     @FindBy(className = "search__button")
     private WebElement botaoSearch;
 
+    @FindBy(className = "suggest__popular-words")
+    private WebElement sugestao;
+
     public HomePage(WebDriver navegador) {
         super(navegador);
     }
@@ -26,7 +29,15 @@ public class HomePage extends BasePage {
         barraSearch.sendKeys(palavra);
     }
 
+    public void clicarNaBarraSearch() {
+        barraSearch.click();
+    }
+
     public void clicarNoBotaoSearch() {
         botaoSearch.click();
+    }
+
+    public String verificaSugeridos() {
+        return sugestao.getText();
     }
 }

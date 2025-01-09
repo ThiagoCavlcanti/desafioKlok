@@ -22,7 +22,6 @@ public class SearchTests {
         WebDriverManager.firefoxdriver().setup();
         navegador = new FirefoxDriver();
         navegador.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
     }
 
     @Test
@@ -34,13 +33,14 @@ public class SearchTests {
 
         homePage.acessarSiteNetshoes();
 
+        navegador.findElement(By.tagName("body")).click();
+
         homePage.inserirPalavraNaBarraDePesquisa("tenis");
 
         homePage.clicarNoBotaoSearch();
 
         String resultado = resultsPage.verificarResultadoDaBusca();
         Assertions.assertTrue(resultado.contains("RESULTADOS DE BUSCA PARA"));
-
     }
 
     @Test
@@ -52,6 +52,8 @@ public class SearchTests {
 
         homePage.acessarSiteNetshoes();
 
+        navegador.findElement(By.tagName("body")).click();
+
         homePage.inserirPalavraNaBarraDePesquisa("tesssssst");
 
         homePage.clicarNoBotaoSearch();
@@ -60,7 +62,21 @@ public class SearchTests {
         Assertions.assertTrue(resultadoInvalido.contains("Verifique se você digitou as palavras corretamente ou tente novamente a busca."));
     }
 
+    @Test
+    @DisplayName("Verifica se após clicar na barra de busca tem itens sugeridos")
+    public void testVerificaSeAposClicarNaBarraDeBuscaTemItensSugeridos() {
 
+        HomePage homePage = new HomePage(navegador);
+
+        homePage.acessarSiteNetshoes();
+
+        navegador.findElement(By.tagName("body")).click();
+
+        homePage.clicarNaBarraSearch();
+
+        String sugeridos = homePage.verificaSugeridos();
+        Assertions.assertTrue(sugeridos.contains("Termos mais buscados"));
+    }
 
     @AfterEach
     public void tearDown() {
