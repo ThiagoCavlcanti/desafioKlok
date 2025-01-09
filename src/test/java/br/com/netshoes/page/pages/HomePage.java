@@ -26,7 +26,7 @@ public class HomePage extends BasePage {
         barraSearch.sendKeys(palavra);
     }
 
-    public void clicarNoBotaoSerach() {
+    public void clicarNoBotaoSearch() {
         botaoSearch.click();
     }
 }

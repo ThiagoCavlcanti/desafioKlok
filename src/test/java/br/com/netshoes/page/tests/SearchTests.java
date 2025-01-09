@@ -32,20 +32,34 @@ public class SearchTests {
         HomePage homePage = new HomePage(navegador);
         ResultsPage resultsPage = new ResultsPage(navegador);
 
-        //acessa o site da NetShoes
         homePage.acessarSiteNetshoes();
 
-        //Insere na barra de pesquisas a palavra desejada
         homePage.inserirPalavraNaBarraDePesquisa("tenis");
 
-        //Clica no botão de pesquisa da barra de pesquisa
-        homePage.clicarNoBotaoSerach();
+        homePage.clicarNoBotaoSearch();
 
-        //Verifica se o site encontrou algum resultado para a pesquisa realizada
         String resultado = resultsPage.verificarResultadoDaBusca();
         Assertions.assertTrue(resultado.contains("RESULTADOS DE BUSCA PARA"));
 
     }
+
+    @Test
+    @DisplayName("Buscar um item na barra de pesquisa com um item inválido")
+    public void testBuscarUmItemNaBarraDePesquisaComUmItemInvalido() {
+
+        HomePage homePage = new HomePage(navegador);
+        ResultsPage resultsPage = new ResultsPage(navegador);
+
+        homePage.acessarSiteNetshoes();
+
+        homePage.inserirPalavraNaBarraDePesquisa("tesssssst");
+
+        homePage.clicarNoBotaoSearch();
+
+        String resultadoInvalido = resultsPage.verificarResultadoDaBuscaInvalida();
+        Assertions.assertTrue(resultadoInvalido.contains("Verifique se você digitou as palavras corretamente ou tente novamente a busca."));
+    }
+
 
 
     @AfterEach

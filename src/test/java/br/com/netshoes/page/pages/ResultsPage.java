@@ -10,8 +10,12 @@ import org.openqa.selenium.support.FindBy;
 public class ResultsPage extends BasePage {
 
 
+
     @FindBy(className = "header-content__title")
     private WebElement resultadoDaBusca;
+
+    @FindBy(className = "empty__subtitle")
+    private WebElement resultadoDaBuscaInvalida;
 
     public ResultsPage(WebDriver navegador) {
         super(navegador);
@@ -19,5 +23,9 @@ public class ResultsPage extends BasePage {
 
     public String verificarResultadoDaBusca() {
         return resultadoDaBusca.getText();
+    }
+
+    public String verificarResultadoDaBuscaInvalida() {
+        return resultadoDaBuscaInvalida.getText();
     }
 }
