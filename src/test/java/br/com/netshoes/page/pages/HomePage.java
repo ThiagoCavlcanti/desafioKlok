@@ -3,11 +3,16 @@ package br.com.netshoes.page.pages;
 import br.com.netshoes.page.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
 
-    private By localizadorDaBarraSearch = By.id("search");
-    private By localizadorBotaoSearch = By.className("search__button");
+    @FindBy(id = "search")
+    private WebElement barraSearch;
+
+    @FindBy(className = "search__button")
+    private WebElement botaoSearch;
 
     public HomePage(WebDriver navegador) {
         super(navegador);
@@ -18,10 +23,10 @@ public class HomePage extends BasePage {
     }
 
     public void inserirPalavraNaBarraDePesquisa(String palavra) {
-        navegador.findElement(localizadorDaBarraSearch).sendKeys(palavra);
+        barraSearch.sendKeys(palavra);
     }
 
     public void clicarNoBotaoSerach() {
-        navegador.findElement(localizadorBotaoSearch).click();
+        botaoSearch.click();
     }
 }
