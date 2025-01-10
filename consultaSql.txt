@@ -1,0 +1,13 @@
+SELECT
+    clientes.nome,
+    apolices.numero_apolice,
+    apolices.tipo_seguro,
+    apolices.valor_premio
+FROM
+    clientes
+JOIN
+    apolices
+ON
+    clientes.id_cliente = apolices.id_cliente
+WHERE
+    apolices.seguro_status = 'ativa';
