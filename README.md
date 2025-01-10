@@ -46,4 +46,4 @@ Testar a funcionalidade de pesquisa inserindo pesquisas com itens existentes e v
 - **CT-001-002**: Buscar um item na barra de pesquisa com um item inválido.
 - **CT-001-003**: Verificar itens sugeridos na barra de pesquisa.
   
- LINK PARA O CASOS   https://docs.google.com/spreadsheets/d/1bZNaC0aoVx8Ru3oCBKALZkIuKCC0h8bJiNXBvAVg58Y/edit?usp=sharing
+ link para os casos   https://docs.google.com/spreadsheets/d/1bZNaC0aoVx8Ru3oCBKALZkIuKCC0h8bJiNXBvAVg58Y/edit?usp=sharing
